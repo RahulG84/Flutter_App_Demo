@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lecarage_practice/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,39 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: Container(
-            color: Colors.yellow,
-            child: const Column(
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text("data"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text("data"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text("data"),
-                    ),
-                  ],
-                ),
-                Text(
-                  "data",
-                  style: TextStyle(backgroundColor: Colors.pink),
-                ),
-              ],
-            ),
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: SafeArea(
+            child: Login(),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
