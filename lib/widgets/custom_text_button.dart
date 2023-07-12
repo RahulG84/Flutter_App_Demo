@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatefulWidget {
-  String textButtonName;
+  double topPadding;
+  String? normalTextName;
+  String? boldTextName;
   Color? textColor;
-  CustomTextButton({Key? key, required this.textButtonName, this.textColor})
+  MainAxisAlignment? align;
+
+   CustomTextButton(
+      {Key? key,
+      this.align,
+      required this.topPadding,
+      this.boldTextName,
+      this.normalTextName,
+      this.textColor,})
       : super(key: key);
 
   @override
@@ -14,18 +24,31 @@ class _CustomTextButtonState extends State<CustomTextButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(14.00, 10.00, 14.00, 10.00),
+      padding:  EdgeInsets.fromLTRB(14.00,widget.topPadding, 14.00, 10.00),
       child: Container(
         alignment: null,
         child: TextButton(
-          onPressed: null,
-          child: Text(
-            widget.textButtonName,
-            style: TextStyle(
-              fontSize: 20,
-              color: widget.textColor,
-            ),
-            
+          onPressed: () {},
+          child: Row(
+            mainAxisAlignment: widget.align!,
+            children: [
+              Text(
+                widget.normalTextName!,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: widget.textColor,
+                ),
+              ),
+              const SizedBox(width: 5.00),
+              Text(
+                widget.boldTextName!,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: widget.textColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
       ),
